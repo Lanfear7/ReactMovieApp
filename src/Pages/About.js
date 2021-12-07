@@ -1,11 +1,11 @@
 import React from 'react'
 
-function IndividualMovie() {
+function About() {
     return (
         <div>
-            
+            <h1>About</h1>
         </div>
     )
 }
 
-export default IndividualMovie
+export default About
