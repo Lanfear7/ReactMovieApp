@@ -10,6 +10,7 @@ import {
   import './Public/StyleSheet/index.css'
 
 function App() {
+    document.title = "Home"
     return (
         <div>
             <BrowserRouter>

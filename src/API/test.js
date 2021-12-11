@@ -19,6 +19,47 @@ export const basicData = [
         "Title": "movie4",
         "Time" : "83min"
     },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie5",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie6",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie7",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie8",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie9",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie10",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie11",
+        "Time" : "83min"
+    },
+    {
+        "Genre": "Top Rated",
+        "Title": "movie12",
+        "Time" : "83min"
+    },
+
 
 ]
 
