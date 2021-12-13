@@ -33,7 +33,7 @@ export async function GetDataByGenre(id){
 const apiKey = '1fa26c8425e1e11c9424d0273f1e98f8';
 //const venom = 'https://api.themoviedb.org/3/movie/580489?api_key=1fa26c8425e1e11c9424d0273f1e98f8&language=en-US'
 
-
+// by polularity
 const fetchMovies = async () => {
     try{
         const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`);
@@ -51,11 +51,69 @@ const fetchMovies = async () => {
 
 export default fetchMovies
 
-export const fetchSignleMovieData = async (id) => {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
-    const movieData = await res.json()
-    console.log(movieData)
 
-    return movieData
+// by Top Rated
+const fetchTopRatedMovies = async () => {
+    try{
+        const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`);
+        const moviesData = await res.json();
+        const first12Movies = moviesData.results.splice(0, 12);
+        //console.log(first12Movies); 
+        
+        return first12Movies
+    }catch (error){
+        console.log(error)
+    }
 }
 
+export default fetchTopRatedMovies
+
+
+// by Now Playing. Get a list of movies in theatres
+const fetchNowPlayingMovies = async () => {
+    try{
+        const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
+        const moviesData = await res.json();
+        const first12Movies = moviesData.results.splice(0, 12);
+        //console.log(first12Movies); 
+        
+        return first12Movies
+    }catch (error){
+        console.log(error)
+    }
+}
+
+export default fetchNowPlayingMovies
+
+
+// by Up Coming
+const fetchUpComingMovies = async () => {
+    try{
+        const res = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`);
+        const moviesData = await res.json();
+        const first12Movies = moviesData.results.splice(0, 12);
+        //console.log(first12Movies); 
+        
+        return first12Movies
+    }catch (error){
+        console.log(error)
+    }
+}
+
+export default fetchUpComingMovies
+
+
+// by singlemovie
+export const fetchSingleMovieData = async (id) => {
+    try{
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
+        const movieData = await res.json()
+        //console.log(movieData)
+    
+        return movieData
+    } catch (error){
+        console.log(error)
+    }
+}
+
+export default fetchSingleMovieData
