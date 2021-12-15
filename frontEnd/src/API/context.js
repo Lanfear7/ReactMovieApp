@@ -6,37 +6,21 @@ export async function GetDataByGenre(id){
     //https://api.themoviedb.org/3/genre/movie/list?api_key=1fa26c8425e1e11c9424d0273f1e98f8 returns all avalible genres
     //https://api.themoviedb.org/3/discover/movie?api_key=1fa26c8425e1e11c9424d0273f1e98f8&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27&with_watch_monetization_types=flatrate select based on genre (&with_genres=27&)
     try{
-        let data = fetch(`https://api.themoviedb.org/3/discover/movie?api_key=1fa26c8425e1e11c9424d0273f1e98f8&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}&with_watch_monetization_types=flatrate`)
-        .then(res => res.json())
-        .catch(err => {
-            console.log(err)})
+        console.log(id)
+        let data = await fetch(`http://localhost:3001/genre/${id}`)
+        let movies = await data.json()
+        return movies
     }catch (error){
         console.log(error)
     }
     
 }
-
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-/*
-    Everything that is commented out shouldnt be there
-    the api key ill have to look into be we shouldnt store it as plain text on the client side
-    all our fetch calls need to be in a try catch incase the fetch dosent work it will fall into our catch opposed to crashing our app 
-*/ 
-
-//const baseMovieURL = 'https://api.themoviedb.org/3/movie/';
-const apiKey = '1fa26c8425e1e11c9424d0273f1e98f8';
-//const venom = 'https://api.themoviedb.org/3/movie/580489?api_key=1fa26c8425e1e11c9424d0273f1e98f8&language=en-US'
-
 // by polularity
-const fetchMovies = async () => {
+export const fetchPopularMovies = async () => {
     try{
-        const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`);
+        const res = await fetch(`http://localhost:3001/popularMovies`);
         const moviesData = await res.json();
         const first12Movies = moviesData.results.splice(0, 12);
         //console.log(first12Movies); 
@@ -49,13 +33,13 @@ const fetchMovies = async () => {
     
 }
 
-export default fetchMovies
+export default fetchPopularMovies
 
 
 // by Top Rated
-const fetchTopRatedMovies = async () => {
+export const fetchTopRatedMovies = async () => {
     try{
-        const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`);
+        const res = await fetch(`http://localhost:3001/topRated`);
         const moviesData = await res.json();
         const first12Movies = moviesData.results.splice(0, 12);
         //console.log(first12Movies); 
@@ -65,14 +49,12 @@ const fetchTopRatedMovies = async () => {
         console.log(error)
     }
 }
-
-export default fetchTopRatedMovies
 
 
 // by Now Playing. Get a list of movies in theatres
-const fetchNowPlayingMovies = async () => {
+export const fetchNowPlayingMovies = async () => {
     try{
-        const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
+        const res = await fetch(`http://localhost:3001/nowPlaying`);
         const moviesData = await res.json();
         const first12Movies = moviesData.results.splice(0, 12);
         //console.log(first12Movies); 
@@ -82,14 +64,12 @@ const fetchNowPlayingMovies = async () => {
         console.log(error)
     }
 }
-
-export default fetchNowPlayingMovies
 
 
 // by Up Coming
-const fetchUpComingMovies = async () => {
+export const fetchUpComingMovies = async () => {
     try{
-        const res = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`);
+        const res = await fetch(`http://localhost:3001/upComingMovies`);
         const moviesData = await res.json();
         const first12Movies = moviesData.results.splice(0, 12);
         //console.log(first12Movies); 
@@ -100,13 +80,12 @@ const fetchUpComingMovies = async () => {
     }
 }
 
-export default fetchUpComingMovies
 
 
 // by singlemovie
 export const fetchSingleMovieData = async (id) => {
     try{
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
+        const res = await fetch(`http://localhost:3001/movie/${id}`)
         const movieData = await res.json()
         //console.log(movieData)
     
@@ -116,4 +95,3 @@ export const fetchSingleMovieData = async (id) => {
     }
 }
 
-export default fetchSingleMovieData

@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import ReactDOM from 'react-dom'
-import GetData from '../API/context'
+import {
+     GetDataByGenre,
+     fetchPopularMovies,
+     fetchTopRatedMovies,
+     fetchNowPlayingMovies,
+     fetchUpComingMovies,
+     fetchSingleMovieData
+     } from '../API/context'
 
 function MovieCarosel(props) {
 
-    const [movieData, setMovieData] = useState([]);
+    const [movieData, setMovieData] = useState([]); 
+    
 
-    let APIdata = GetData(27)//will referance a function in API/context.js
-    console.log(APIdata)
-
+    
     function MovieCardHover(e){
         if (e.target.className != "movie-card"){
             console.log('find div in dom')
