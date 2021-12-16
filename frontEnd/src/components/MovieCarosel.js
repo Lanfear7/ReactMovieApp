@@ -13,7 +13,7 @@ function MovieCarosel(props) {
 
     const [movieData, setMovieData] = useState([]); 
     
-
+    console.log(GetDataByGenre(27))
     
     function MovieCardHover(e){
         if (e.target.className != "movie-card"){
@@ -30,6 +30,7 @@ function MovieCarosel(props) {
         <div key={i} className="movie-card" onMouseOver={MovieCardHover}>
             <img src="#"/>
             <h4 className="movie-title">{data.Title}</h4>
+            <button type="button">Like</button>
         </div>
     )
 

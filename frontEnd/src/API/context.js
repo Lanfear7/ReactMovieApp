@@ -6,7 +6,6 @@ export async function GetDataByGenre(id){
     //https://api.themoviedb.org/3/genre/movie/list?api_key=1fa26c8425e1e11c9424d0273f1e98f8 returns all avalible genres
     //https://api.themoviedb.org/3/discover/movie?api_key=1fa26c8425e1e11c9424d0273f1e98f8&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27&with_watch_monetization_types=flatrate select based on genre (&with_genres=27&)
     try{
-        console.log(id)
         let data = await fetch(`http://localhost:3001/genre/${id}`)
         let movies = await data.json()
         return movies
@@ -49,6 +48,7 @@ export const fetchTopRatedMovies = async () => {
         console.log(error)
     }
 }
+
 
 
 // by Now Playing. Get a list of movies in theatres
