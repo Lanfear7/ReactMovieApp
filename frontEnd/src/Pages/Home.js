@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import MovieCarosel from '../components/MovieCarosel'
 import Navbar from '../components/Navbar'
 import Background from '../Public/Images/background.jpg'
+import favoriteMovies from './FavoriteMovies'
 
 /*
     Have the page "load" and when "loading" have rewind come in from the rigt side but last letter to fist letter stop so its centered
@@ -50,5 +51,4 @@ function Home() {
         </div>
     )
 }
-
 export default Home

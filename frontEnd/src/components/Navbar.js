@@ -15,7 +15,7 @@ function Navbar() {
                 <Link to="/About">About</Link>
                 <Link to="/TopRated">Top Rated</Link>
                 <Link to="/Genres">Genres</Link>
-                <Link to="/Favourites">Favourites</Link>
+                <Link to="/Favorites">Favorites</Link>
                 <Link to="/SignUp">Sign Up</Link>
                 <Link to="/SignIn">Sign In</Link>
             </nav>

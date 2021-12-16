@@ -7,6 +7,7 @@ import {
   import Home from './Pages/Home';
   import About from './Pages/About';
   import TopRated from './Pages/TopRated';
+  import FavoriteMovies from './Pages/FavoriteMovies';
   import SignUp from './Pages/SignUp';
   import SignIn from './Pages/SignIn';
   import NotFound from './Pages/NotFound';
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/" element={ <Home />} />
                     <Route path="/About" element={ <About />} />
                     <Route path="/TopRated" element={ <TopRated />} />
+                    <Route path="/Favorites" element={ <FavoriteMovies />} />
                     <Route path="/SignUp" element={<SignUp />} />
                     <Route path="/SignIn" element={<SignIn />} />
                     <Route path="*" element={ <NotFound />} />

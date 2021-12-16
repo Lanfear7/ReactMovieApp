@@ -4,7 +4,7 @@ const cors = require('cors')
 const app = express()
 const port = 3001
 
-require('dotenv').config() //allows us to use .evn file
+require('dotenv').config() //allows us to use .env file
 
 app.use(cors())
 app.use(express.json()) 
@@ -19,7 +19,7 @@ app.get('/popularMovies', async (req, res) => {
         const data = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`)
         res.json(data.data)
     }catch(error){
-        res.json({error: "Eorror occured"})
+        res.json({error: "Error occured"})
     }
     
 })
@@ -30,7 +30,7 @@ app.get('/genre/:id', async (req, res) =>{
         const data = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${query}&with_watch_monetization_types=flatrate1`)
         res.json(data.data)
     }catch(error){
-        res.json({error: "Eorror occured"})
+        res.json({error: "Error occured"})
     }   
 })
 
@@ -39,7 +39,7 @@ app.get('/topRated', async (req,res) => {
         const data = await axios(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`)
         res.json(data.data)
     }catch(error){
-        res.json({error: "Eorror occured"})
+        res.json({error: "Error occured"})
     } 
 })
 
@@ -48,7 +48,7 @@ app.get('/nowPlaying', async (req,res) => {
         const data = await axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`)
         res.json(data.data)
     }catch(error){
-        res.json({error: "Eorror occured"})
+        res.json({error: "Error occured"})
     }
 })
 
@@ -57,7 +57,7 @@ app.get('/upComingMovies', async (req,res) => {
         const data = await axios(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`)
         res.json(data.data)
     }catch(error){
-        res.json({error: "Eorror occured"})
+        res.json({error: "Error occured"})
     }  
 })
 
