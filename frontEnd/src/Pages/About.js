@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import TMDB_logo from '../Public/Images/TMDb.jpg'
 import Background from '../Public/Images/background.jpg'
 import Footer from '../components/Footer'
+import '../Public/StyleSheet/about.css'
 
 function About() {
     return (
@@ -16,21 +17,32 @@ function About() {
                 <Navbar />                                  
             </div>
             <div className="about-content-container">
-                <h1>About Rewind</h1>
+                <div className='card'>
+                    <h1>About Rewind</h1>
                     <p>Use Rewind to discover countless movies, from top rated and popular movies, to upcoming movies and ones that are currently playing.
                         View movie ratings and reviews, and keep track of your own personal favorites.
                     </p>
-
-                <h1>Do I Need to Create an Account to Use Rewind?</h1>
+                </div>
+                
+                <div className='card'>
+                    <h1>Do I Need to Create an Account to Use Rewind?</h1>
                     <p>You don't need an account to navigate Rewind, but you'll need to register with Rewind in order to add movies to 
                         your favorites list, leave reviews, and have access to other Rewind features.
                     </p>
+                    <button>Sign Me Up!</button>   
+                </div>
+
                 
-                <button>Sign Me Up!</button>                
-                
-                <h1>TMDb Attribution</h1>
-                    <img src={TMDB_logo}></img>
+                             
+                <div className='TMDB-card'>
+                    <h1>TMDB Attribution</h1>
+                    <div className='img-container'>
+                        <img src={TMDB_logo}></img>
+                    </div>
+                    
                     <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+                </div>
+        
             </div>
             <Footer />
         </div>

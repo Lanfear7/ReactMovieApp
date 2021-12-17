@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import Logo from '../Public/Images/rewindLogo.png'
-  
+import '../Public/StyleSheet/nav.css'
 function Navbar() {
     return (
         <div className="nav-bar">  

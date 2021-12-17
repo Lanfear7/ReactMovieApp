@@ -1,0 +1,65 @@
+.nav-bar {
+  background-color: #202020;
+  width: 95%;
+  padding-left: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-bar .logo-container {
+  width: 200px;
+  height: 100px;
+  margin-right: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-bar .logo-container a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-bar .logo-container a h1 {
+  color: white;
+}
+
+.nav-bar .logo-container a .main-logo {
+  height: 50px;
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.nav-bar nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.nav-bar nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+}
+
+.nav-bar nav a:hover {
+  color: #00c3ff;
+}
+/*# sourceMappingURL=nav.css.map */

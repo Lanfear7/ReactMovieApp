@@ -9,6 +9,8 @@ import {
      fetchSingleMovieData
      } from '../API/context'
 
+import "../Public/StyleSheet/carosel.css"
+
 function MovieCarosel(props) {
 
     const [movieData, setMovieData] = useState([]); 
