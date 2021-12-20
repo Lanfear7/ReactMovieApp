@@ -44,8 +44,8 @@ function Home() {
                 <Navbar />
             </div>
             <div className="content-container"> 
-                <MovieCarosel movies={basicData} query={'popular'}/>
-                <MovieCarosel movies={horrorData} query={27}/>
+                <MovieCarosel query={'popular'} genre={"Popular"}/>
+                <MovieCarosel query={27} genre={"Action"}/>
             </div>
             <Footer />
         </div>

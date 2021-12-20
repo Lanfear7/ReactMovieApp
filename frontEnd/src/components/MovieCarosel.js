@@ -16,34 +16,69 @@ function MovieCarosel(props) {
     const [movieData, setMovieData] = useState([]); 
     const [favoriteMovies, setFavoriteMovies] = useState([])
     
-    console.log(GetDataByGenre(27))
-    
-    function MovieCardHover(e){
-        if (e.target.className != "movie-card"){
-            console.log('find div in dom')
-            //got to parent element
-        }else{
-            console.log('GOT DIV')
-            //have the card blow up 1.3x add animation with fromaer motion
+    useEffect(() => {
+        if(props.genre === "Popular"){
+            console.log('YESSIR')
         }
+        GetDataByGenre(props.query)
+          .then(res => {
+              console.log(res.results)
+              setMovieData(res.results)
+          })
+          .catch(err => {
+              console.log(err)
+          })
+      }, [])
 
-    }
+      let mainArr = []
+      function carosel(){
+          let pushArr = []
+          let i = 0;
+          let master = 0;
+          movieData.forEach((item) =>{
+              i++
+              master++
+              if(i < 7){
+                  pushArr.push(`<div>
+                      <h1>${item.title}</h1>
+                  </div>`)
+                  if(master == movieData.length){
+                      mainArr.push(pushArr)
+                  }
+              }
+              else{
+                  mainArr.push(pushArr)
+                  pushArr = []
+                  i = 0
+              }
+          })
+          console.log(mainArr)
+      }
+
+      carosel()
+
+
+    return (
+        <div className="movie-carosel">
+            <h1>{props.genre}</h1>
+            <div className="movie-row">
+                {mainArr.length > 0 
+                ?movieData.map((item) => {
+                    return <div className='movie-card'>
+                        <h1>{item.title}</h1>
+                        <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
+                        <button>Add To Favorites</button>
+                    </div>
+                })
+                :<h1>Loading...</h1>}
+            </div>
+        </div>
+    )
 
 
     // let addToFaveList = () => {setFavoriteMovies(this.movieCards)}        //dont think this would logically work because if you use this in an arrow function it
     //                                                                         refers to the object that defines the function rather than the object that triggered the function
     //                                                                         to execute (the "add to faves" button in this case)
-
-
-    let movieCards = props.movies.map((data, i) => 
-        <div key={i} className="movie-card" onMouseOver={MovieCardHover}>
-            <img src="#"/>
-            <h4 className="movie-title">{data.Title}</h4>
-            <button type = "button" onClick ={addToFaveList}>Add To Favorites</button>
-        </div>
-        
-    )
-
     //something like this? need global state?
     function addToFaveList(e){
         let clickedFave = e.target.value
@@ -51,16 +86,6 @@ function MovieCarosel(props) {
         setFavoriteMovies(...this.movieCards)
         console.log(favoriteMovies, "fave movies")
     }
-
-
-    return (
-        <div className="movie-carosel">
-            <h1>{props.movies[0].Genre}</h1>
-            <div className="movie-row">
-                {movieCards}
-            </div>
-        </div>
-    )
 }
 
 export default MovieCarosel
