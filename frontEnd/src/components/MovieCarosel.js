@@ -14,12 +14,11 @@ import "../Public/StyleSheet/carosel.css"
 function MovieCarosel(props) {
 
     const [movieData, setMovieData] = useState([]); 
+    const [caroselArr, setCaroselArr] = useState([])
+    const [move, setMove] = useState(0)
     const [favoriteMovies, setFavoriteMovies] = useState([])
     
     useEffect(() => {
-        if(props.genre === "Popular"){
-            console.log('YESSIR')
-        }
         GetDataByGenre(props.query)
           .then(res => {
               console.log(res.results)
@@ -38,10 +37,8 @@ function MovieCarosel(props) {
           movieData.forEach((item) =>{
               i++
               master++
-              if(i < 7){
-                  pushArr.push(`<div>
-                      <h1>${item.title}</h1>
-                  </div>`)
+              if(i < 6){
+                  pushArr.push(item)
                   if(master == movieData.length){
                       mainArr.push(pushArr)
                   }
@@ -57,13 +54,37 @@ function MovieCarosel(props) {
 
       carosel()
 
+      function moveCarosel(e){
+          if(move > mainArr.length){
+              setMove(0)
+          }else{
+            console.log(e.target.innerHTML)
+            if(e.target.innerHTML == "Left"){
+                if(move == 0){
+                    setMove(mainArr.length - 1)
+                }else{
+                    setMove(move - 1)
+                }
+            }else{
+                if(move == mainArr.length - 1){
+                    setMove(0)
+                }else{
+                    setMove(move + 1)
+                }
+            }
+          }
+      }
+
 
     return (
         <div className="movie-carosel">
             <h1>{props.genre}</h1>
             <div className="movie-row">
+                <div className='left-btn'><button onClick={moveCarosel}>Left</button></div>
                 {mainArr.length > 0 
-                ?movieData.map((item) => {
+                ?
+                mainArr[move].map((item) => {
+                    console.log(item)
                     return <div className='movie-card'>
                         <h1>{item.title}</h1>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
@@ -71,6 +92,7 @@ function MovieCarosel(props) {
                     </div>
                 })
                 :<h1>Loading...</h1>}
+                <div className='right-btn'><button onClick={moveCarosel}>Right</button></div>
             </div>
         </div>
     )
