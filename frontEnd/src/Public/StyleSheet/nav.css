@@ -57,9 +57,11 @@
   text-decoration: none;
   color: white;
   font-size: 22px;
+  padding: 0.5%;
 }
 
 .nav-bar nav a:hover {
   color: #00c3ff;
+  border-bottom: white 1px solid;
 }
 /*# sourceMappingURL=nav.css.map */

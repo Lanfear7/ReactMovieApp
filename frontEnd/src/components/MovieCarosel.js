@@ -10,6 +10,8 @@ import {
      } from '../API/context'
 
 import "../Public/StyleSheet/carosel.css"
+import left from '../Public/Images/left-arrow.png'
+import right from '../Public/Images/next.png'
 
 function MovieCarosel(props) {
 
@@ -21,7 +23,6 @@ function MovieCarosel(props) {
     useEffect(() => {
         GetDataByGenre(props.query)
           .then(res => {
-              console.log(res.results)
               setMovieData(res.results)
           })
           .catch(err => {
@@ -37,7 +38,7 @@ function MovieCarosel(props) {
           movieData.forEach((item) =>{
               i++
               master++
-              if(i < 6){
+              if(i <= 4){
                   pushArr.push(item)
                   if(master == movieData.length){
                       mainArr.push(pushArr)
@@ -58,7 +59,7 @@ function MovieCarosel(props) {
           if(move > mainArr.length){
               setMove(0)
           }else{
-            console.log(e.target.innerHTML)
+            console.log(e)
             if(e.target.innerHTML == "Left"){
                 if(move == 0){
                     setMove(mainArr.length - 1)
@@ -80,19 +81,20 @@ function MovieCarosel(props) {
         <div className="movie-carosel">
             <h1>{props.genre}</h1>
             <div className="movie-row">
-                <div className='left-btn'><button onClick={moveCarosel}>Left</button></div>
+                <div className='left-btn' onClick={moveCarosel}><img src={left}/></div>
                 {mainArr.length > 0 
                 ?
                 mainArr[move].map((item) => {
                     console.log(item)
                     return <div className='movie-card'>
-                        <h1>{item.title}</h1>
+                        <h2>{item.title}</h2>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
-                        <button>Add To Favorites</button>
+                        <button className='Favs'>Add To Favorites</button>
+                        <button>More Info</button>
                     </div>
                 })
                 :<h1>Loading...</h1>}
-                <div className='right-btn'><button onClick={moveCarosel}>Right</button></div>
+                <div className='right-btn' onClick={moveCarosel}><img src={right} /></div>
             </div>
         </div>
     )

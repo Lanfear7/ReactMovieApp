@@ -32,9 +32,11 @@
             text-decoration: none;
             color: white;
             font-size: 22px;
+            padding: 0.5%;
         }
         a:hover{
             color: rgb(0, 195, 255);
+            border-bottom: white 1px solid;
         }
     }
 }

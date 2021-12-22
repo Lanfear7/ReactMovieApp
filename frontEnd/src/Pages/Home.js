@@ -3,7 +3,7 @@ import {basicData, horrorData} from '../API/test' //testdata
 import Footer from '../components/Footer'
 import MovieCarosel from '../components/MovieCarosel'
 import Navbar from '../components/Navbar'
-import Background from '../Public/Images/background.jpg'
+import Background from '../Public/Images/background2.jpg'
 import favoriteMovies from './FavoriteMovies'
 
 /*
@@ -37,15 +37,18 @@ import favoriteMovies from './FavoriteMovies'
 function Home() {
     return (
         <div className="home-container">
-            <div className="background-img">
-                <img src={Background} />
-            </div>
             <div className="main-nav"> 
                 <Navbar />
             </div>
             <div className="content-container"> 
+                <img className='background' src={Background} />
                 <MovieCarosel query={'popular'} genre={"Popular"}/>
                 <MovieCarosel query={27} genre={"Action"}/>
+                <MovieCarosel query={35} genre={"Comedy"}/>
+                <MovieCarosel query={9648} genre={"Mystery"}/>
+                <MovieCarosel query={18} genre={"Drama"}/>
+                <MovieCarosel query={16} genre={"Animation"}/>
+                <MovieCarosel query={10752} genre={"War"}/>
             </div>
             <Footer />
         </div>

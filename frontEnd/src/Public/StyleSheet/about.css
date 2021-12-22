@@ -1,8 +1,9 @@
 .about-container {
-  background-color: #292a44;
+  background-color: #09161f;
 }
 
 .about-container .about-content-container {
+  margin-top: 5%;
   height: 100%;
 }
 
@@ -21,10 +22,11 @@
   text-align: center;
   color: white;
   font-size: 30px;
+  margin-bottom: 4%;
 }
 
-.about-container .about-content-container .card button {
-  margin-top: 2%;
+.about-container .about-content-container .card a {
+  text-decoration: none;
   background-color: rgba(255, 255, 255, 0);
   border: #5a5aff 1px solid;
   padding: 1%;

@@ -4,6 +4,7 @@ import TMDB_logo from '../Public/Images/TMDb.jpg'
 import Background from '../Public/Images/background.jpg'
 import Footer from '../components/Footer'
 import '../Public/StyleSheet/about.css'
+import { Link } from 'react-router-dom'
 
 function About() {
     return (
@@ -29,7 +30,7 @@ function About() {
                     <p>You don't need an account to navigate Rewind, but you'll need to register with Rewind in order to add movies to 
                         your favorites list, leave reviews, and have access to other Rewind features.
                     </p>
-                    <button>Sign Me Up!</button>   
+                    <Link to="/Signup">Sign Me Up!</Link>
                 </div>
 
                 

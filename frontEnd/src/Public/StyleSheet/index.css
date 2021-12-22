@@ -5,9 +5,14 @@
   margin: 0%;
 }
 
+body {
+  background-color: #09161f;
+}
+
 .home-container {
   background-color: #09161f;
   width: 100%;
+  height: 100%;
 }
 
 .home-container .background-img {
@@ -16,16 +21,6 @@
   left: 0;
   position: relative;
   width: 100%;
-  height: 2000px;
-}
-
-.home-container .background-img img {
-  width: 100%;
-  height: 100%;
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.753)), to(rgba(0, 0, 0, 0)));
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0));
-          mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.753)), to(rgba(0, 0, 0, 0)));
-          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0));
 }
 
 .home-container .main-nav {
@@ -39,10 +34,26 @@
 }
 
 .home-container .content-container {
-  margin-top: 10%;
+  margin-top: 5%;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  background-color: #09161f;
+}
+
+.home-container .content-container .background {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.753)), to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0));
+          mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.753)), to(rgba(0, 0, 0, 0)));
+          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0));
+}
+
+.home-container .content-container .movie-carosel {
+  position: relative;
+  z-index: 10;
 }
 /*# sourceMappingURL=index.css.map */
