@@ -1,0 +1,24 @@
+{
+  "name": "movie-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "concurrently": "^6.5.1"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \" cd frontEnd && npm start \"",
+    "server": "cd backEnd && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lanfear7/ReactMovieApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lanfear7/ReactMovieApp/issues"
+  },
+  "homepage": "https://github.com/Lanfear7/ReactMovieApp#readme"
+}
