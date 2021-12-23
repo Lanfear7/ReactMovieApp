@@ -19,7 +19,6 @@
 }
 
 .signUp-container .signUp-content-container form {
-  border: white 1px solid;
   padding: 2%;
   width: 50%;
   display: -ms-grid;
@@ -61,7 +60,7 @@
 
 .signUp-container .signUp-content-container form label {
   color: white;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .signUp-container .signUp-content-container form p {

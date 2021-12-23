@@ -1,4 +1,6 @@
 .footer-content {
+  position: relative;
+  bottom: 0;
   margin-top: 3%;
   display: -webkit-box;
   display: -ms-flexbox;

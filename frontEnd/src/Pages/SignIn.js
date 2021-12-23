@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import '../Public/StyleSheet/signIn.css'
+import {Link} from 'react-router-dom'
 
 function SignIn(){
     return(
@@ -20,6 +21,9 @@ function SignIn(){
         
                     <button type="submit" class="registerbtn">Log In</button>
                 </form>
+                <div className='signup-container'>
+                    <p>Dont have an account click <Link to="/SignUp">Here</Link> to make one!</p>
+                </div>
         </div>
         <Footer />
         </div>

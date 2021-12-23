@@ -1,1 +1,111 @@
-/* No CSS *//*# sourceMappingURL=signIn.css.map */
+.signIn-container .signIn-content-container {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.signIn-container .signIn-content-container form {
+  margin-top: 100px;
+  padding: 2%;
+  width: 50%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% 1fr 25%;
+      grid-template-columns: 25% 1fr 25%;
+}
+
+.signIn-container .signIn-content-container form h1 {
+  color: white;
+  padding-bottom: 20px;
+}
+
+.signIn-container .signIn-content-container form input, .signIn-container .signIn-content-container form label, .signIn-container .signIn-content-container form p, .signIn-container .signIn-content-container form button, .signIn-container .signIn-content-container form h1 {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  display: block;
+}
+
+.signIn-container .signIn-content-container form input, .signIn-container .signIn-content-container form label, .signIn-container .signIn-content-container form button {
+  margin-left: 10%;
+}
+
+.signIn-container .signIn-content-container form input {
+  margin-bottom: 5%;
+  height: 30px;
+  font-size: 15px;
+}
+
+.signIn-container .signIn-content-container form input:hover {
+  border: white 2px solid;
+  -webkit-box-shadow: 0px 0px 5px #7aebff;
+          box-shadow: 0px 0px 5px #7aebff;
+}
+
+.signIn-container .signIn-content-container form input:focus {
+  outline: none;
+}
+
+.signIn-container .signIn-content-container form label {
+  color: white;
+  margin-bottom: 2%;
+}
+
+.signIn-container .signIn-content-container form p {
+  color: white;
+}
+
+.signIn-container .signIn-content-container form p a {
+  text-decoration: none;
+  color: #00a2ff;
+}
+
+.signIn-container .signIn-content-container form p a:hover {
+  border-bottom: white 1px solid;
+}
+
+.signIn-container .signIn-content-container form button {
+  margin-bottom: 5%;
+  border: #5a5aff 1px solid;
+  background-color: rgba(255, 255, 255, 0);
+  color: #00a2ff;
+  font-size: 15px;
+  padding: 1% 0% 1% 0%;
+}
+
+.signIn-container .signIn-content-container form button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0px 0px 5px #7aebff;
+          box-shadow: 0px 0px 5px #7aebff;
+  border: none;
+  color: white;
+}
+
+.signIn-container .signIn-content-container .signup-container {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signIn-container .signIn-content-container .signup-container p {
+  color: white;
+}
+
+.signIn-container .signIn-content-container .signup-container p a {
+  color: #00a2ff;
+}
+/*# sourceMappingURL=signIn.css.map */

@@ -16,16 +16,16 @@ function SignUp(){
                 <form>
                     <h1>Sign Up</h1>
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" id="email" required/>
+                    <input type="text" placeholder="Email" name="email" id="email" required/>
 
                     <label for="first-name"><b>First Name</b></label>
-                    <input type="text" placeholder="Enter First Name" name="first-name" id="first-name" required/>
+                    <input type="text" placeholder="First Name" name="first-name" id="first-name" required/>
 
                     <label for="last-name"><b>Last Name</b></label>
-                    <input type="text" placeholder="Enter Last Name" name="last-name" id="last-name" required/>
+                    <input type="text" placeholder="Last Name" name="last-name" id="last-name" required/>
 
                     <label for="pword"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="pword" id="pword" required/>
+                    <input type="password" placeholder="Password" name="pword" id="pword" required/>
                     <label for="confirm-pword"><b>Confirm Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="confirm-pword" id="confirm-pword" required/>
 
