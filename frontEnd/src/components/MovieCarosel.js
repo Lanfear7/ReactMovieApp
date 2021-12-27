@@ -35,7 +35,8 @@ function MovieCarosel(props) {
           let pushArr = []
           let i = 0;
           let master = 0;
-          movieData.forEach((item) =>{
+          try{
+              movieData.forEach((item) =>{
               i++
               master++
               if(i <= 4){
@@ -49,7 +50,11 @@ function MovieCarosel(props) {
                   pushArr = []
                   i = 0
               }
-          })
+            })
+          }catch(error){
+            console.error(error)
+          }
+          
           console.log(mainArr)
       }
 
