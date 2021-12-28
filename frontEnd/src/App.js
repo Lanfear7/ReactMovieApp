@@ -12,6 +12,8 @@ import {
   import SignIn from './Pages/SignIn';
   import NotFound from './Pages/NotFound';
   import './Public/StyleSheet/index.css'
+import Navbar from './components/Navbar';
+import Genres from './Pages/Genres';
 
 function App() {
     document.title = "Home"
@@ -19,13 +21,14 @@ function App() {
         <div>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={ <Home />} />
-                    <Route path="/About" element={ <About />} />
-                    <Route path="/TopRated" element={ <TopRated />} />
-                    <Route path="/Favorites" element={ <FavoriteMovies />} />
-                    <Route path="/SignUp" element={<SignUp />} />
-                    <Route path="/SignIn" element={<SignIn />} />
-                    <Route path="*" element={ <NotFound />} />
+                    <Route path="/" element={ <Home /> } />
+                    <Route path="/About" element={ <About /> } />
+                    <Route path="/TopRated" element={ <TopRated /> } />
+                    <Route path="/Favorites" element={ <FavoriteMovies /> } />
+                    <Route path="/Genres" element={ <Genres /> } />
+                    <Route path="/SignUp" element={<SignUp /> } />
+                    <Route path="/SignIn" element={<SignIn /> } />
+                    <Route path="*" element={ <NotFound /> } />
                 </Routes>
             </BrowserRouter>
         </div>

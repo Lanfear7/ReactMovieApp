@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {basicData, horrorData} from '../API/test' //testdata
 import Footer from '../components/Footer'
 import MovieCarosel from '../components/MovieCarosel'
 import Navbar from '../components/Navbar'
-import Background from '../Public/Images/background2.jpg'
+import Background from '../Public/Images/background3.jpg'
 import favoriteMovies from './FavoriteMovies'
 
 /*
@@ -33,13 +33,15 @@ import favoriteMovies from './FavoriteMovies'
     18: {id: 37, name: 'Western'}
 */
 
-
 function Home() {
+    
+    useEffect(() => {
+        document.title = "Rewind - Home"
+    },[])
+
     return (
         <div className="home-container">
-            <div className="main-nav"> 
-                <Navbar />
-            </div>
+            <Navbar />
             <div className="content-container"> 
                 <img className='background' src={Background} />
                 <MovieCarosel query={'popular'} genre={"Popular"}/>

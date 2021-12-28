@@ -34,10 +34,6 @@
   display: block;
 }
 
-.signIn-container .signIn-content-container form input, .signIn-container .signIn-content-container form label, .signIn-container .signIn-content-container form button {
-  margin-left: 10%;
-}
-
 .signIn-container .signIn-content-container form input {
   margin-bottom: 5%;
   height: 30px;

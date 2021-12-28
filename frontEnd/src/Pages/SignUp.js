@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import Background from '../Public/Images/background.jpg'
 import Footer from '../components/Footer'
@@ -7,6 +7,9 @@ import {Link} from 'react-router-dom'
 import '../Public/StyleSheet/signUp.css'
 
 function SignUp(){
+    useEffect(() => {
+        document.title = "Rewind - SignUp"
+    },[])
     return(
         <div className="signUp-container">
             <div className="signUp-nav">

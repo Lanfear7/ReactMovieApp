@@ -1,10 +1,13 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import '../Public/StyleSheet/signIn.css'
 import {Link} from 'react-router-dom'
 
 function SignIn(){
+    useEffect(() => {
+        document.title = "Rewind - SignIn"
+    },[]) 
     return(
         <div className="signIn-container">
             <div className="signIn-nav">

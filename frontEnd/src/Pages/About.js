@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import TMDB_logo from '../Public/Images/TMDb.jpg'
 import Background from '../Public/Images/background.jpg'
@@ -7,16 +7,20 @@ import '../Public/StyleSheet/about.css'
 import { Link } from 'react-router-dom'
 
 function About() {
+
+    useEffect(() => {
+        document.title = "Rewind - About"
+    },[])
+
     return (
         <div className="about-container">
             {/*                                             Brennan, not sure what you want to set as bcg image 
             <div className="background-img">                For the about page, but here's some placeholder code for it 
                 <img src={Background} />                    
             </div> */}                                           
-                                                            
-            <div className="about-nav">
-                <Navbar />                                  
-            </div>
+
+            <Navbar />                                  
+
             <div className="about-content-container">
                 <div className='card'>
                     <h1>About Rewind</h1>

@@ -38,10 +38,6 @@
   display: block;
 }
 
-.signUp-container .signUp-content-container form input, .signUp-container .signUp-content-container form label, .signUp-container .signUp-content-container form button {
-  margin-left: 10%;
-}
-
 .signUp-container .signUp-content-container form input {
   margin-bottom: 5%;
   height: 30px;
