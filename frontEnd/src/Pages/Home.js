@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import {basicData, horrorData} from '../API/test' //testdata
 import Footer from '../components/Footer'
 import MovieCarosel from '../components/MovieCarosel'
 import Navbar from '../components/Navbar'
 import Background from '../Public/Images/background3.jpg'
 import favoriteMovies from './FavoriteMovies'
+import { GetDataByGenre } from '../API/context'
 
 /*
     Have the page "load" and when "loading" have rewind come in from the rigt side but last letter to fist letter stop so its centered
@@ -33,25 +34,65 @@ import favoriteMovies from './FavoriteMovies'
     18: {id: 37, name: 'Western'}
 */
 
+
+//usestate to controle conditional rendering and if the serach is used setstate of search to true and if true display search results
+
+
 function Home() {
     
+    const [search, setSearch] = useState(false);
+    const [searchQuery ,setSearchQuery] = useState('')
+    const [movieData, setMovieData] = useState([])
+
+
     useEffect(() => {
         document.title = "Rewind - Home"
-    },[])
+        console.log(searchQuery)
+        if(searchQuery !== ''){
+            GetDataByGenre(searchQuery)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    },[searchQuery])
+
+
+    function Submit (e){
+        e.preventDefault()
+        let searchQuery = document.querySelector('.search-input')
+        setSearchQuery(searchQuery.value)
+        setSearch(true)
+
+        searchQuery.value = ""
+    }
 
     return (
         <div className="home-container">
             <Navbar />
-            <div className="content-container"> 
+            <div className='search'>
+                <form className='Search-box'>
+                    <input type="text" placeholder='Search...' className='search-input'></input>
+                    <button type="submit" className='search-btn' onClick={Submit}>Search</button>
+                </form>
+            </div>
+            {search 
+            ?<div><h1>Searching...{searchQuery}</h1></div>
+            :<div className="content-container"> 
                 <img className='background' src={Background} />
                 <MovieCarosel query={'popular'} genre={"Popular"}/>
-                <MovieCarosel query={27} genre={"Action"}/>
+                <MovieCarosel query={28} genre={"Action"}/>
+                <MovieCarosel query={27} genre={"Horror"}/>
                 <MovieCarosel query={35} genre={"Comedy"}/>
                 <MovieCarosel query={9648} genre={"Mystery"}/>
                 <MovieCarosel query={18} genre={"Drama"}/>
                 <MovieCarosel query={16} genre={"Animation"}/>
                 <MovieCarosel query={10752} genre={"War"}/>
             </div>
+    }
+            
             <Footer />
         </div>
     )

@@ -54,8 +54,6 @@ function MovieCarosel(props) {
           }catch(error){
             console.error(error)
           }
-          
-          console.log(mainArr)
       }
 
       carosel()
@@ -64,7 +62,7 @@ function MovieCarosel(props) {
           if(move > mainArr.length){
               setMove(0)
           }else{
-            console.log(e)
+            //console.log(e)
             if(e.target.innerHTML == "Left"){
                 if(move == 0){
                     setMove(mainArr.length - 1)
@@ -90,10 +88,11 @@ function MovieCarosel(props) {
                 {mainArr.length > 0 
                 ?
                 mainArr[move].map((item) => {
-                    console.log(item)
+                    //console.log(item)
                     return <div className='movie-card'>
                         <h2>{item.title}</h2>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
+                        <p className='rating'>{item.vote_average}/10</p>
                         <button className='Favs'>Add To Favorites</button>
                         <button>More Info</button>
                     </div>
