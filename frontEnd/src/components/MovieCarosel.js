@@ -20,6 +20,7 @@ function MovieCarosel(props) {
     const [move, setMove] = useState(0)
     const [favoriteMovies, setFavoriteMovies] = useState([])
     
+    
     useEffect(() => {
         GetDataByGenre(props.query)
           .then(res => {
@@ -93,7 +94,9 @@ function MovieCarosel(props) {
                         <h2>{item.title}</h2>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
                         <p className='rating'>{item.vote_average}/10</p>
-                        <button className='Favs'>Add To Favorites</button>
+
+                        <button className='Favs' onClick = {addToFaves}>Add To Favorites</button>
+                        
                         <button>More Info</button>
                     </div>
                 })
@@ -103,16 +106,22 @@ function MovieCarosel(props) {
         </div>
     )
 
+    function addToFaves(e){
 
-    // let addToFaveList = () => {setFavoriteMovies(this.movieCards)}        //dont think this would logically work because if you use this in an arrow function it
-    //                                                                         refers to the object that defines the function rather than the object that triggered the function
-    //                                                                         to execute (the "add to faves" button in this case)
-    //something like this? need global state?
-    function addToFaveList(e){
-        let clickedFave = e.target.value
-        console.log(clickedFave)
-        setFavoriteMovies(...this.movieCards)
-        console.log(favoriteMovies, "fave movies")
+        let movieCard = e.target.parentNode
+        let h2TagName = movieCard.childNodes[0]
+        let imgTag = movieCard.childNodes[1].src
+        let ratingPTag  = movieCard.childNodes[2]
+    
+        const movie = {
+
+            'movieTitle': h2TagName.innerHTML,
+            'moviePoster':imgTag,
+            'movieRating':  ratingPTag.innerHTML
+        }
+    
+        localStorage.setItem('movieCard', JSON.stringify(movie))
+        console.log(JSON.parse(localStorage.getItem('movieCard')))
     }
 }
 
