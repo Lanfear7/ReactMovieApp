@@ -77,13 +77,14 @@ function Home() {
 
     useEffect(() => {
         document.title = "Rewind - Home"
-        console.log(searchQuery)
+        console.log(searchQuery, allGenres[0].name)
         if(searchQuery !== ''){
-            if(searchQuery.toLocaleLowerCase() == allGenres[0].name.toLocaleLowerCase()){
+            if(searchQuery.toLocaleLowerCase() === allGenres[0].name.toLocaleLowerCase()){
                 Search(allGenres[0].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[1].name.toLocaleLowerCase()){
+                console.log('in')
+            }else if(searchQuery.toLocaleLowerCase() === allGenres[1].name.toLocaleLowerCase()){
                 Search(allGenres[1].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[2].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLocaleLowerCase() === allGenres[2].name.toLocaleLowerCase()){
                 Search(allGenres[2].id)
             }else if(searchQuery.toLocaleLowerCase() == allGenres[3].name.toLocaleLowerCase()){
                 Search(allGenres[3].id)
@@ -138,9 +139,10 @@ function Home() {
     },[searchQuery])
 
     function Search(query){
+        console.log(query)
         GetDataByGenre(query)
             .then(res => {
-                setMovieData(res)
+                setMovieData(res.results)
             })
             .catch(err => {
                 console.log(err)
@@ -233,10 +235,10 @@ function Home() {
             </div>
             {search 
                 ?movieData.length > 0
-                    ?<div>
+                    ?<div className='search-container'>
                         {movieData.map((item, key) => {
                             console.log(item)
-                            return <div key={key}>
+                            return <div key={key} className='search-card'>
                                 <img src={"https://image.tmdb.org/t/p/original"+item.poster_path} />
                                 <h1>{item.original_title}</h1>
                             </div>
