@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { Link } from "react-router-dom";
 import ReactDOM, { render } from 'react-dom'
 import {
      GetDataByGenre,
@@ -94,11 +95,11 @@ function MovieCarosel(props) {
                         <h2>{item.title}</h2>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
                         <p className='rating'>{item.vote_average}/10</p>
-                        
-                        <button>More Info</button>
+                        <button className = 'more-info-btn' onClick={()=> window.location.href='/IndividualMovie'}>More Info</button>
                     </div>
                 })
                 :<h1>Loading...</h1>}
+                
                 <div className='right-btn' onClick={moveCarosel}><img src={right} /></div>
             </div>
         </div>
