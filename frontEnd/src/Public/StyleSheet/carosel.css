@@ -10,6 +10,9 @@
   margin-left: 5%;
   width: 200px;
   text-align: center;
+  background-color: #202020;
+  margin-bottom: 1%;
+  padding: 10px 0px;
 }
 
 .movie-carosel .movie-row {
@@ -79,7 +82,7 @@
 
 .movie-carosel .movie-row .movie-card {
   width: 300px;
-  height: 700px;
+  height: 600px;
   background-color: #202020;
   text-align: center;
 }

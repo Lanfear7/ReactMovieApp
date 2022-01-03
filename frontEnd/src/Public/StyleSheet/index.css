@@ -47,7 +47,6 @@ body {
 .home-container .search-container .search-card {
   width: 50%;
   height: 700px;
-  background-color: violet;
 }
 
 .home-container .content-container {
@@ -69,5 +68,52 @@ body {
 .home-container .content-container .movie-carosel {
   position: relative;
   z-index: 10;
+}
+
+.home-container .search {
+  z-index: 15;
+  position: absolute;
+  right: 5%;
+  margin-top: 15px;
+}
+
+.home-container .search .Search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home-container .search .search-input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #202020;
+  color: white;
+  width: 200px;
+  overflow: hidden;
+  border: 1px solid #000;
+  position: relative;
+  padding: 10px 0;
+}
+
+.home-container .search .search-btn {
+  margin-top: 5%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80%;
+          flex: 0 0 80%;
+  background-color: #202020;
+  color: white;
+  padding: 5px 0;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.home-container .search .search-btn:hover {
+  color: #49adff;
 }
 /*# sourceMappingURL=index.css.map */
