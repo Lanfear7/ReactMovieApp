@@ -128,4 +128,10 @@
           transform: scale(1.2);
   border: white 2px solid;
 }
+
+@media only screen and (max-width: 500px) {
+  .movie-carosel {
+    padding-top: 110px;
+  }
+}
 /*# sourceMappingURL=carosel.css.map */

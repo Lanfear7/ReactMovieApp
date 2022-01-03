@@ -201,6 +201,10 @@ function Home(props) {
         searchQuery.value = ""
     }
 
+    function Content(){
+        console.log('clicked')
+    }
+
     return (
         <div className="home-container">
             <Navbar />
@@ -238,9 +242,8 @@ function Home(props) {
                     ?<div className='search-container'>
                         {movieData.map((item, key) => {
                             console.log(item)
-                            return <div key={key} className='search-card'>
+                            return <div key={key} className='search-card' onClick={Content}>
                                 <img src={"https://image.tmdb.org/t/p/original"+item.poster_path} />
-                                <h1>{item.original_title}</h1>
                             </div>
                         })}
                      </div>
@@ -257,7 +260,6 @@ function Home(props) {
                     <MovieCarosel query={10752} genre={"War"}/>
                 </div>
             }
-            
             <Footer />
         </div>
     )
