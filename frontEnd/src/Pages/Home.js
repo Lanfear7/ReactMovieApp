@@ -46,8 +46,8 @@ import {
 //usestate to controle conditional rendering and if the serach is used setstate of search to true and if true display search results
 
 
-function Home() {
-    
+function Home(props) {
+    console.log(props.searchCount)
     const [search, setSearch] = useState(false);
     const [searchQuery ,setSearchQuery] = useState('')
     const [movieData, setMovieData] = useState([]) //state to disply once search has added items to moviedata
@@ -79,56 +79,56 @@ function Home() {
         document.title = "Rewind - Home"
         console.log(searchQuery, allGenres[0].name)
         if(searchQuery !== ''){
-            if(searchQuery.toLocaleLowerCase() === allGenres[0].name.toLocaleLowerCase()){
+            if(searchQuery.toLowerCase() === allGenres[0].name.toLowerCase()){
                 Search(allGenres[0].id)
                 console.log('in')
-            }else if(searchQuery.toLocaleLowerCase() === allGenres[1].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() === allGenres[1].name.toLowerCase()){
                 Search(allGenres[1].id)
-            }else if(searchQuery.toLocaleLowerCase() === allGenres[2].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() === allGenres[2].name.toLowerCase()){
                 Search(allGenres[2].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[3].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[3].name.toLowerCase()){
                 Search(allGenres[3].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[4].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[4].name.toLowerCase()){
                 Search(allGenres[4].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[5].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[5].name.toLowerCase()){
                 Search(allGenres[5].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[6].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[6].name.toLowerCase()){
                 Search(allGenres[6].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[7].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[7].name.toLowerCase()){
                 Search(allGenres[7].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[8].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[8].name.toLowerCase()){
                 Search(allGenres[8].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[9].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[9].name.toLowerCase()){
                 Search(allGenres[9].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[10].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[10].name.toLowerCase()){
                 Search(allGenres[10].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[11].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[11].name.toLowerCase()){
                 Search(allGenres[11].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[12].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[12].name.toLowerCase()){
                 Search(allGenres[12].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[13].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[13].name.toLowerCase()){
                 Search(allGenres[13].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[14].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[14].name.toLowerCase()){
                 Search(allGenres[14].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[15].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[15].name.toLowerCase()){
                 Search(allGenres[15].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[16].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[16].name.toLowerCase()){
                 Search(allGenres[16].id)
-            }else if(searchQuery.toLocaleLowerCase() == allGenres[17].name.toLocaleLowerCase()){
+            }else if(searchQuery.toLowerCase() == allGenres[17].name.toLowerCase()){
                 Search(allGenres[17].id)
-            }else if (searchQuery.toLocaleLowerCase() === 'popular'){
+            }else if (searchQuery.toLowerCase() === 'popular'){
                 console.log('popular')
                 PopularMovies()
             }
-            else if (searchQuery.toLocaleLowerCase() === 'now playing'){
+            else if (searchQuery.toLowerCase() === 'now playing'){
                 console.log('Now Playing')
                 NowPlaying()
             }
-            else if (searchQuery.toLocaleLowerCase() === 'top rated'){
+            else if (searchQuery.toLowerCase() === 'top rated'){
                 console.log('Top rated')
                 TopRated()
             }
-            else if (searchQuery.toLocaleLowerCase() === 'upcoming'){
+            else if (searchQuery.toLowerCase() === 'upcoming'){
                 console.log('Upcoming')
                 Upcoming()
             }else{
@@ -202,6 +202,10 @@ function Home() {
         searchQuery.value = ""
     }
 
+    function Content(){
+        console.log('clicked')
+    }
+
     return (
         <div className="home-container">
             <Navbar />
@@ -239,9 +243,8 @@ function Home() {
                     ?<div className='search-container'>
                         {movieData.map((item, key) => {
                             console.log(item)
-                            return <div key={key} className='search-card'>
+                            return <div key={key} className='search-card' onClick={Content}>
                                 <img src={"https://image.tmdb.org/t/p/original"+item.poster_path} />
-                                <h1>{item.original_title}</h1>
                             </div>
                         })}
                      </div>
@@ -258,7 +261,6 @@ function Home() {
                     <MovieCarosel query={10752} genre={"War"}/>
                 </div>
             }
-            
             <Footer />
         </div>
     )

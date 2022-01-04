@@ -1,7 +1,7 @@
 .nav-bar {
   background-color: #202020;
   width: 95%;
-  height: 130px;
+  height: 100px;
   padding-left: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,5 +67,11 @@
 .nav-bar nav a:hover {
   color: #00c3ff;
   border-bottom: white 1px solid;
+}
+
+@media only screen and (max-width: 400px) {
+  .nav-bar {
+    height: 180px;
+  }
 }
 /*# sourceMappingURL=nav.css.map */

@@ -6,7 +6,6 @@ import {
   } from 'react-router-dom'
   import Home from './Pages/Home';
   import About from './Pages/About';
-  import TopRated from './Pages/TopRated';
   import FavoriteMovies from './Pages/FavoriteMovies';
   import SignUp from './Pages/SignUp';
   import SignIn from './Pages/SignIn';
@@ -23,7 +22,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={ <Home /> } />
                     <Route path="/About" element={ <About /> } />
-                    <Route path="/TopRated" element={ <TopRated /> } />
                     <Route path="/Favorites" element={ <FavoriteMovies /> } />
                     <Route path="/Genres" element={ <Genres /> } />
                     <Route path="/SignUp" element={<SignUp /> } />

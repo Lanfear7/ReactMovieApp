@@ -1,7 +1,7 @@
 .nav-bar{
     background-color: rgb(32, 32, 32);
     width: 95%;
-    height: 130px;
+    height: 100px;
     padding-left: 5%;
     display: flex;
     .logo-container{
@@ -43,3 +43,9 @@
         }
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .nav-bar{
+        height: 180px;
+    }
+  }
