@@ -159,6 +159,7 @@ function Home() {
                 console.error(error)
             })
     }
+    
     function TopRated(){
         fetchTopRatedMovies()
             .then(res =>{
