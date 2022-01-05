@@ -84,11 +84,11 @@ export const fetchUpComingMovies = async () => {
 
 
 // by singlemovie
-export const fetchSingleMovieData = async (id) => {
+export const fetchSingleMovie = async (id) => {
     try{
+        id = id.substring(1)
         const res = await fetch(`http://localhost:3001/movie/${id}`)
         const movieData = await res.json()
-        //console.log(movieData)
     
         return movieData
     } catch (error){

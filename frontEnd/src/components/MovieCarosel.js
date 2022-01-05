@@ -95,7 +95,7 @@ function MovieCarosel(props) {
                         <h2>{item.title}</h2>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
                         <p className='rating'>{item.vote_average}/10</p>
-                        <button className = 'more-info-btn' onClick={()=> window.location.href='/IndividualMovie'}>More Info</button>
+                        <Link to={`/IndividualMovie:${item.id}`} className="more-info-button">More Info</Link>
                     </div>
                 })
                 :<h1>Loading...</h1>}

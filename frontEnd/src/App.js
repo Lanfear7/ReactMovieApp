@@ -9,6 +9,7 @@ import {
   import FavoriteMovies from './Pages/FavoriteMovies';
   import SignUp from './Pages/SignUp';
   import SignIn from './Pages/SignIn';
+  import IndividualMovie from './Pages/IndividualMovie';
   import NotFound from './Pages/NotFound';
   import './Public/StyleSheet/index.css'
 import Navbar from './components/Navbar';
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/Genres" element={ <Genres /> } />
                     <Route path="/SignUp" element={<SignUp /> } />
                     <Route path="/SignIn" element={<SignIn /> } />
+                    <Route path="/IndividualMovie:id" element={<IndividualMovie /> } />
                     <Route path="*" element={ <NotFound /> } />
                 </Routes>
             </BrowserRouter>
