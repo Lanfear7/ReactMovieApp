@@ -7,7 +7,8 @@ import Footer from '../components/Footer'
 import { useParams } from "react-router-dom";
 import { fetchSingleMovie } from '../API/context'
 import '../Public/StyleSheet/IndividualMovie.css'
-import { set } from 'express/lib/application';
+
+export let index = 0
 
 
 function IndividualMovie(){
@@ -40,11 +41,10 @@ function IndividualMovie(){
             'moviePoster': imgTag,
             'movieRating':  ratingPTag.innerHTML
         }
-   
-        localStorage.setItem('movieCard', JSON.stringify(movie))
-        console.log(JSON.parse(localStorage.getItem('movieCard')))
+        
+        index = index + 1
+        localStorage.setItem(`${index}movieCard`, JSON.stringify(movie))
         setFavorite(movie)
-        console.log(movie)
 
         // const [favorites, setFavorite] = useState("");
 
@@ -55,9 +55,24 @@ function IndividualMovie(){
         //   }
         // }, [])
     }
+
+
     
     function removeFromFaves(e){
-        alert("removed")
+        let movieCard = e.target.parentNode
+        let h2TagName = movieCard.childNodes[0]
+        console.log(h2TagName.innerHTML)
+
+        for(let i = 0; i < localStorage.length; i++){
+            let storageItem = JSON.parse(localStorage.getItem(localStorage.key(i)))
+            if(h2TagName.innerHTML == storageItem.movieTitle){
+                console.log(`we got one at ${i}`)
+                console.log(storageItem)
+                localStorage.removeItem(storageItem)
+                console.log(localStorage)
+            }
+        }
+
         //function to remove movie from favorite array
         
     }
@@ -92,6 +107,8 @@ function IndividualMovie(){
 }
 
 export default IndividualMovie
+
+
 
 
 

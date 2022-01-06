@@ -19,8 +19,7 @@ function MovieCarosel(props) {
     const [movieData, setMovieData] = useState([]); 
     const [caroselArr, setCaroselArr] = useState([])
     const [move, setMove] = useState(0)
-    const [favoriteMovies, setFavoriteMovies] = useState([])
-    
+  
     
     useEffect(() => {
         GetDataByGenre(props.query)
@@ -64,7 +63,6 @@ function MovieCarosel(props) {
           if(move > mainArr.length){
               setMove(0)
           }else{
-            //console.log(e)
             if(e.target.innerHTML == "Left"){
                 if(move == 0){
                     setMove(mainArr.length - 1)
@@ -90,7 +88,6 @@ function MovieCarosel(props) {
                 {mainArr.length > 0 
                 ?
                 mainArr[move].map((item) => {
-                    //console.log(item)
                     return <div className='movie-card'>
                         <h2>{item.title}</h2>
                         <img src={"https://image.tmdb.org/t/p/original"+item.poster_path}></img>
