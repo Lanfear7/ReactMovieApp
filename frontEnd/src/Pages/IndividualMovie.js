@@ -7,13 +7,13 @@ import Footer from '../components/Footer'
 import { useParams } from "react-router-dom";
 import { fetchSingleMovie } from '../API/context'
 import '../Public/StyleSheet/IndividualMovie.css'
-
-
+import { set } from 'express/lib/application';
 
 
 function IndividualMovie(){
     const { id } = useParams()
     const [movieData, setMovieData] = useState([])
+    
 
     useEffect(() => {
         fetchSingleMovie(id)
@@ -25,6 +25,42 @@ function IndividualMovie(){
                 console.error(error)
             })
     }, [])
+
+    const [favorite, setFavorite] = useState([]) 
+    function addToFaves(e){
+
+        let movieCard = e.target.parentNode
+        let h2TagName = movieCard.childNodes[0]
+        let imgTag = movieCard.childNodes[1].src
+        let ratingPTag  = movieCard.childNodes[2]
+    
+        const movie = {
+
+            'movieTitle': h2TagName.innerHTML,
+            'moviePoster': imgTag,
+            'movieRating':  ratingPTag.innerHTML
+        }
+   
+        localStorage.setItem('movieCard', JSON.stringify(movie))
+        console.log(JSON.parse(localStorage.getItem('movieCard')))
+        setFavorite(movie)
+        console.log(movie)
+
+        // const [favorites, setFavorite] = useState("");
+
+        // useEffect(async ()=>{
+        //   let savedFavorite = await localStorage.getItem('__Fav');
+        //   if(savedFavorite) {
+        //     setFavorite(savedFavorite);
+        //   }
+        // }, [])
+    }
+    
+    function removeFromFaves(e){
+        alert("removed")
+        //function to remove movie from favorite array
+        
+    }
 
     return(
         <div className="singleMovie-container">
@@ -42,7 +78,10 @@ function IndividualMovie(){
                     <div>
                         <p className='overview'>{movieData.overview}</p>
                     </div>
-                    <button className='Favs'>Add To Favorites</button>
+                    {favorite == false
+                    ?(<button className='Favs' onClick ={addToFaves}>Add To Favorites</button>)
+                    :(<button className='Favs' onClick ={removeFromFaves}>Added!</button>)}
+                    
                 </div>
                 
             </div>
@@ -53,6 +92,9 @@ function IndividualMovie(){
 }
 
 export default IndividualMovie
+
+
+
 
 // function MoviePage() {
 

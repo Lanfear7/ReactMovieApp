@@ -105,25 +105,7 @@ function MovieCarosel(props) {
         </div>
     )
 
-    /*
-    function addToFaves(e){
-
-        let movieCard = e.target.parentNode
-        let h2TagName = movieCard.childNodes[0]
-        let imgTag = movieCard.childNodes[1].src
-        let ratingPTag  = movieCard.childNodes[2]
-    
-        const movie = {
-
-            'movieTitle': h2TagName.innerHTML,
-            'moviePoster':imgTag,
-            'movieRating':  ratingPTag.innerHTML
-        }
-    
-        localStorage.setItem('movieCard', JSON.stringify(movie))
-        console.log(JSON.parse(localStorage.getItem('movieCard')))
-    }
-    */
+  
 }
 
 export default MovieCarosel
