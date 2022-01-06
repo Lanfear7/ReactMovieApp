@@ -5,12 +5,9 @@ import React, {
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useParams } from "react-router-dom";
-import Movies from '../components/IndividualMovie'
-import { 
-    GetDataByGenre,
-    fetchSingleMovie
- } from '../API/context'
-const apiKey = '1fa26c8425e1e11c9424d0273f1e98f8';
+import { fetchSingleMovie } from '../API/context'
+import '../Public/StyleSheet/IndividualMovie.css'
+
 
 
 
@@ -31,19 +28,23 @@ function IndividualMovie(){
 
     return(
         <div className="singleMovie-container">
-            <div className="singleMovie-nav">
-                <Navbar />
-            </div>
+            <Navbar />
             <div className="singleMovie-content-container">
                 <h1>Movie Info</h1>
- 
-                <h2>{movieData.title}</h2>
-                <img src={"https://image.tmdb.org/t/p/original"+movieData.poster_path}></img>
-                <p className='date'>{movieData.release_date}</p>
-                <p className='rating'>{movieData.vote_average}/10</p>
+                <div>
+                    <h2>{movieData.title}</h2>
+                    <div>
+                        <img src={"https://image.tmdb.org/t/p/original"+movieData.poster_path}></img>
+                    </div>
+                    <p className='date'>{movieData.release_date}</p>
+                    <p className='rating'>{movieData.vote_average}/10</p>
 
-                <p className='overview'>{movieData.overview}</p>
-                <button className='Favs'>Add To Favorites</button>
+                    <div>
+                        <p className='overview'>{movieData.overview}</p>
+                    </div>
+                    <button className='Favs'>Add To Favorites</button>
+                </div>
+                
             </div>
             <Footer />
         </div>
