@@ -10,8 +10,15 @@ import {index} from "../Pages/IndividualMovie";
 function FavoriteMovies(){
     // console.log(index)
     // console.log(localStorage.getItem("2movieCard" ))
-    let faveMovieArr = [JSON.parse(localStorage.getItem("2movieCard"))]
-    console.log(faveMovieArr)
+    let faveMovieArr = 0
+    
+    let storageItems = localStorage
+    
+    let storeageArr = []
+    for(let i = 0; i < storageItems.length; i++){
+        storeageArr.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+    }
+
 
 
     return(
@@ -21,14 +28,13 @@ function FavoriteMovies(){
                 <Navbar />
             </div>
             <div className="favorite-movie-content-container">
-            {faveMovieArr.length > 0
+            {storeageArr.length > 0
             ?
-            faveMovieArr.map((item) => {
-                return <div className="movie-card">
-                    <h2>{item.movieTitle}</h2>
-                    <img src= {item.moviePoster}></img>
-                    <p className ='rating'>{item.movieRating}/10</p>
-                </div>
+            storeageArr.map((item) => {
+                return <div>
+                        <h1>{item.movieTitle}</h1>
+                    </div>
+                
             })
             :<h1>Loading...</h1>}
             </div>
