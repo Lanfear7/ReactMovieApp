@@ -1,10 +1,8 @@
 import React from "react";
-import Background from '../Public/Images/background.jpg'
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import '../Public/StyleSheet/favoriteMovies.css'
 //import {favoriteMovies} from  "../components/MovieCarosel";
-import MovieCarosel from "../components/MovieCarosel";
-import {index} from "../Pages/IndividualMovie";
 
 
 function FavoriteMovies(){
@@ -28,15 +26,16 @@ function FavoriteMovies(){
                 <Navbar />
             </div>
             <div className="favorite-movie-content-container">
-            {storeageArr.length > 0
-            ?
-            storeageArr.map((item) => {
-                return <div>
-                        <h1>{item.movieTitle}</h1>
-                    </div>
-                
-            })
-            :<h1>Loading...</h1>}
+                {storeageArr.length > 0
+                ?
+                storeageArr.map((item) => {
+                    return <div className="favorite-card">
+                            <h1>- {item.movieTitle}</h1>
+                        </div>
+                    
+                })
+                :<h1>No movies are in your favorites list.</h1>
+                }
             </div>
             <Footer />
         </div>

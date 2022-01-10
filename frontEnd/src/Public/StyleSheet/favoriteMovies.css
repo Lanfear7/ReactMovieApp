@@ -1,0 +1,30 @@
+.favorite-movie-container {
+  height: 100vh;
+}
+
+.favorite-movie-container .favorite-movie-content-container {
+  margin-top: 10%;
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  text-align: center;
+}
+
+.favorite-movie-container .footer-content {
+  position: absolute;
+  bottom: 0%;
+  width: 100vw;
+}
+/*# sourceMappingURL=favoriteMovies.css.map */
