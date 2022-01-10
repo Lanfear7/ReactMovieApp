@@ -79,9 +79,4 @@
   padding: 10px;
   text-decoration: none;
 }
-
-.singleMovie-container .singleMovie-content-container div button:hover {
-  color: red;
-  border: white 1px solid;
-}
 /*# sourceMappingURL=IndividualMovie.css.map */

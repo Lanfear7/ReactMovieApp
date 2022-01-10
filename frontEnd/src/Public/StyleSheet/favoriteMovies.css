@@ -3,23 +3,57 @@
 }
 
 .favorite-movie-container .favorite-movie-content-container {
-  margin-top: 10%;
+  margin-top: 5%;
   height: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   color: white;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
 .favorite-movie-container .favorite-movie-content-container .favorite-card {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
   text-align: center;
+  height: 100%;
+  width: 15%;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card h1 {
+  height: 20%;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card img {
+  height: 200px;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card div {
+  height: 200px;
+  overflow: scroll;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card ::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card ::-webkit-scrollbar-thumb {
+  background: #005ce6;
+}
+
+.favorite-movie-container .favorite-movie-content-container .favorite-card ::-webkit-scrollbar-thumb:hover {
+  background: #c2136a;
 }
 
 .favorite-movie-container .footer-content {

@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import MovieCarosel from '../components/MovieCarosel'
 import Navbar from '../components/Navbar'
 import Background from '../Public/Images/background3.jpg'
-import favoriteMovies from './FavoriteMovies'
+import {Link} from 'react-router-dom'
 import { 
     GetDataByGenre,
     fetchPopularMovies,
@@ -47,7 +47,6 @@ import {
 
 
 function Home(props) {
-    console.log(props.searchCount)
     const [search, setSearch] = useState(false);
     const [searchQuery ,setSearchQuery] = useState('')
     const [movieData, setMovieData] = useState([]) //state to disply once search has added items to moviedata
@@ -77,11 +76,9 @@ function Home(props) {
 
     useEffect(() => {
         document.title = "Rewind - Home"
-        console.log(searchQuery, allGenres[0].name)
         if(searchQuery !== ''){
             if(searchQuery.toLowerCase() === allGenres[0].name.toLowerCase()){
                 Search(allGenres[0].id)
-                console.log('in')
             }else if(searchQuery.toLowerCase() === allGenres[1].name.toLowerCase()){
                 Search(allGenres[1].id)
             }else if(searchQuery.toLowerCase() === allGenres[2].name.toLowerCase()){
@@ -117,19 +114,15 @@ function Home(props) {
             }else if(searchQuery.toLowerCase() == allGenres[17].name.toLowerCase()){
                 Search(allGenres[17].id)
             }else if (searchQuery.toLowerCase() === 'popular'){
-                console.log('popular')
                 PopularMovies()
             }
             else if (searchQuery.toLowerCase() === 'now playing'){
-                console.log('Now Playing')
                 NowPlaying()
             }
             else if (searchQuery.toLowerCase() === 'top rated'){
-                console.log('Top rated')
                 TopRated()
             }
             else if (searchQuery.toLowerCase() === 'upcoming'){
-                console.log('Upcoming')
                 Upcoming()
             }else{
                 setMovieData([])
@@ -139,7 +132,6 @@ function Home(props) {
     },[searchQuery])
 
     function Search(query){
-        console.log(query)
         GetDataByGenre(query)
             .then(res => {
                 setMovieData(res.results)
@@ -152,7 +144,6 @@ function Home(props) {
     function PopularMovies (){
         fetchPopularMovies()
             .then(res => {
-                console.log(res)
                 setMovieData(res)
             })
             .catch(error => {
@@ -163,7 +154,6 @@ function Home(props) {
     function TopRated(){
         fetchTopRatedMovies()
             .then(res =>{
-                console.log(res)
                 setMovieData(res)
             })
             .catch(error => {
@@ -174,7 +164,6 @@ function Home(props) {
     function NowPlaying(){
         fetchNowPlayingMovies()
             .then(res =>{
-                console.log(res)
                 setMovieData(res)
             })
             .catch(error => {
@@ -185,7 +174,6 @@ function Home(props) {
     function Upcoming(){
         fetchUpComingMovies()
             .then(res =>{
-                console.log(res)
                 setMovieData(res)
             })
             .catch(error => {
@@ -200,10 +188,6 @@ function Home(props) {
         setSearch(true)
         //will update the state so useEffect will run again
         searchQuery.value = ""
-    }
-
-    function Content(){
-        console.log('clicked')
     }
 
     return (
@@ -242,13 +226,14 @@ function Home(props) {
                 ?movieData.length > 0
                     ?<div className='search-container'>
                         {movieData.map((item, key) => {
-                            console.log(item)
-                            return <div key={key} className='search-card' onClick={Content}>
-                                <img src={"https://image.tmdb.org/t/p/original"+item.poster_path} />
+                            return <div key={key} className='search-card'>
+                                <Link to={`/IndividualMovie:${item.id}`}>
+                                    <img src={"https://image.tmdb.org/t/p/original"+item.poster_path} />
+                                </Link>
                             </div>
                         })}
                      </div>
-                    :<div><h1>Searching...</h1></div>
+                    :<div className='loading-container'><h1>Searching...</h1></div>
                 :<div className="content-container"> 
                     <img className='background' src={Background} />
                     <MovieCarosel query={'popular'} genre={"Popular"}/>

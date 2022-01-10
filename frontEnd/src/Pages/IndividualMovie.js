@@ -20,7 +20,6 @@ function IndividualMovie(){
     useEffect(() => {
         fetchSingleMovie(id)
             .then(res =>{
-                console.log(res)
                 setMovieData(res)
             })
             .catch(error => {
@@ -36,19 +35,22 @@ function IndividualMovie(){
         let imgTag = movieCard.childNodes[1].childNodes[0].src
         let ratingPTag = movieCard.childNodes[3]
         let releasePTag  = movieCard.childNodes[2]
+        let overview = movieCard.childNodes[4].childNodes[0]
+
 
         const movie = {
 
             'movieTitle': h2TagName.innerHTML,
             'moviePoster': imgTag,
             'movieRating':  ratingPTag.innerHTML,
-            'movieRelease': releasePTag.innerHTML
+            'movieRelease': releasePTag.innerHTML,
+            'movieOverview': overview.innerHTML
+
         }
 
         check(movie)
 
         if(!isSaved){
-            console.log(imgTag)
             localStorage.setItem(`movieCard${index}`, JSON.stringify(movie))
             index++
             setFavorite(movie)
@@ -60,7 +62,6 @@ function IndividualMovie(){
         for(let i =0; i < localStorage.length; i++){
             let storageItem = JSON.parse(localStorage.getItem(localStorage.key(i)))
             if(storageItem.movieTitle == movie.movieTitle){
-                console.log("dont add")
                 setIsSaved(true)
             }
         }
@@ -69,7 +70,6 @@ function IndividualMovie(){
     function removeFromFaves(e){
         let movieCard = e.target.parentNode.parentNode
         let h2TagName = movieCard.childNodes[0]
-        console.log(h2TagName.innerHTML)
 
         for(let i = 0; i < localStorage.length; i++){
             let storageItem = JSON.parse(localStorage.getItem(localStorage.key(i)))

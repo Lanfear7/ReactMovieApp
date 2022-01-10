@@ -1,15 +1,47 @@
 .favorite-movie-container{
     height: 100vh;
     .favorite-movie-content-container{
-        margin-top: 10%;
+        margin-top: 5%;
         height: 60%;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         color: white;
         flex-wrap: wrap;
         .favorite-card{
-            flex-basis: 100%;
             text-align: center;
+            height: 100%;
+            width: 15%;
+            h1{
+                height: 20%;
+            }
+            img{
+                height: 200px;
+            }
+            div{
+                height: 200px;
+                overflow: scroll;
+      
+            }
+            /* width */
+            ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #ffffff;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(0, 92, 230);
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgb(194, 19, 106);
+            }
         }
     }
     .footer-content{

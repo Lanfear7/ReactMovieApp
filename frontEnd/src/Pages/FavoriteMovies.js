@@ -24,15 +24,14 @@ function FavoriteMovies(){
                 {storeageArr.length > 0
                 ?
                 storeageArr.map((item) => {
-                    console.log(item)
                     return <div className="favorite-card">
                             <h1>{item.movieTitle}</h1>
                             <img src={item.moviePoster}></img>
                             <p>Release Date: {item.movieRelease}</p>
                             <p>Rating: {item.movieRating}</p>
-                            {/* <div>
-                                <p className='overview'>{movieData.overview}</p>
-                            </div> */}
+                            <div>
+                                <p className='overview'>{item.movieOverview}</p>
+                            </div>
                         </div>
                         
                     
