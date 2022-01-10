@@ -43,8 +43,6 @@ function IndividualMovie(){
             'movieRating':  ratingPTag.innerHTML
         }
 
-
-
         check(movie)
 
         console.log(isSaved)
@@ -54,15 +52,6 @@ function IndividualMovie(){
             index++
             setFavorite(movie)
         }
-
-        // const [favorites, setFavorite] = useState("");
-
-        // useEffect(async ()=>{
-        //   let savedFavorite = await localStorage.getItem('__Fav');
-        //   if(savedFavorite) {
-        //     setFavorite(savedFavorite);
-        //   }
-        // }, [])
     }
 
     function check(movie){
