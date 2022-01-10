@@ -1,12 +1,8 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-<<<<<<< HEAD
 import '../Public/StyleSheet/favoriteMovies.css'
 //import {favoriteMovies} from  "../components/MovieCarosel";
-
-=======
->>>>>>> 795a13e18d94b2f47c2a67830493883e7b18c7ba
 
 function FavoriteMovies(){
     
@@ -24,30 +20,26 @@ function FavoriteMovies(){
                 <Navbar />
             </div>
             <div className="favorite-movie-content-container">
-<<<<<<< HEAD
+
                 {storeageArr.length > 0
                 ?
                 storeageArr.map((item) => {
+                    console.log(item)
                     return <div className="favorite-card">
-                            <h1>- {item.movieTitle}</h1>
+                            <h1>{item.movieTitle}</h1>
+                            <img src={item.moviePoster}></img>
+                            <p>Release Date: {item.movieRelease}</p>
+                            <p>Rating: {item.movieRating}</p>
+                            {/* <div>
+                                <p className='overview'>{movieData.overview}</p>
+                            </div> */}
                         </div>
+                        
                     
                 })
                 :<h1>No movies are in your favorites list.</h1>
                 }
-=======
-            {storeageArr.length > 0
-            ?
-            storeageArr.map((item) => {
-                return <div>
-                        <h1>{item.movieTitle}</h1>
-                        <img src ={item.moviePoster}></img>
-                        <p>{item.movieRating}/10</p>
-                    </div>
-                
-            })
-            :<h1>Loading...</h1>}
->>>>>>> 795a13e18d94b2f47c2a67830493883e7b18c7ba
+
             </div>
             <Footer />
         </div>

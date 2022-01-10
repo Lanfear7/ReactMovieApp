@@ -1,13 +1,18 @@
-Rewind <|
+Rewind <|BRENNAN FORMANEK, STELLA KAGRIMANYAN, ROYCE WEE
 
-To run this project you will need to navigate to a few folders and run npm start
+To run this project you will need to navigate to a few folders and run npm start. Here are the instructions broken down:
 
-Firstly run npm i in the root folder 
+1. IN THE ROOT FOLDER
+==> npm i
 
-cd frontend then run npm i
+2. cd INTO frontend FOLDER
+==> npm i
 
-Then you will want to cd ../backend then run npm i
+3. cd ../backend
+==> npm i
 
-Then cd ../ and npm start (Both the backend and front end should start to run at this time. Backend will run on port 3001 and the front end will run on port 3000)
+4. cd ../ (MUST BE IN ROOT FOLDER)
+==> npm start
+*** Both the backend and front end should start to run at this time. Backend will run on port 3001 and the front end will run on port 3000
 
-If you run into any problems with running both the backend and frontend navigate to both directories (/frontend and /backend) and then run npm start 
+****If you run into any problems running both the backend and frontend, navigate to both directories (/frontend and /backend) and then run npm start in each one****

@@ -33,24 +33,26 @@ function IndividualMovie(){
 
         let movieCard = e.target.parentNode
         let h2TagName = movieCard.childNodes[0]
-        let imgTag = movieCard.childNodes[1].src
-        let ratingPTag  = movieCard.childNodes[2]
-    
+        let imgTag = movieCard.childNodes[1].childNodes[0].src
+        let ratingPTag = movieCard.childNodes[3]
+        let releasePTag  = movieCard.childNodes[2]
+
         const movie = {
 
             'movieTitle': h2TagName.innerHTML,
             'moviePoster': imgTag,
-            'movieRating':  ratingPTag.innerHTML
+            'movieRating':  ratingPTag.innerHTML,
+            'movieRelease': releasePTag.innerHTML
         }
 
         check(movie)
 
-        console.log(isSaved)
         if(!isSaved){
-            console.log(isSaved)
+            console.log(imgTag)
             localStorage.setItem(`movieCard${index}`, JSON.stringify(movie))
             index++
             setFavorite(movie)
+
         }
     }
 
